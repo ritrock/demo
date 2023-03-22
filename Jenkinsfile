@@ -17,18 +17,24 @@ pipeline{
     }
     stage("build"){
       steps{
-        gv.buildApp()
+        script{
+            gv.buildApp()
+        }
         
       }
     }
       stage("test"){
         steps{
-          gv.buildTest()
+          script{
+            gv.buildTest()
+          }
       }
     }
        stage("deploy"){
         steps{
-          gv.buildDeploy()
+          script{
+            gv.buildDeploy()
+          }
       }
     }
   }
